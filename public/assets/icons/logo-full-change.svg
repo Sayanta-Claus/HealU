@@ -1,0 +1,39 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Heart Shape with Gradient -->
+    <path d="M19 36.5C19 36.5 8 27 8 18.5C8 14 11 10.5 15.5 10.5C17.5 10.5 20 12 19 12C18 12 30 10.5 32 18.5C34 26.5 19 36.5 19 36.5Z" 
+          fill="url(#heartGradient)" 
+          stroke="white" 
+          stroke-width="1.5">
+        <animate attributeName="d" 
+                 dur="1.5s" 
+                 repeatCount="indefinite"
+                 values="M19 36.5C19 36.5 8 27 8 18.5C8 14 11 10.5 15.5 10.5C17.5 10.5 20 12 19 12C18 12 30 10.5 32 18.5C34 26.5 19 36.5 19 36.5Z;
+                         M19 38C19 38 7 28 7 19C7 14 10 9.5 15 9.5C17.5 9.5 20.5 11 19 11C17.5 11 31 9.5 33 19C35 28.5 19 38 19 38Z;
+                         M19 36.5C19 36.5 8 27 8 18.5C8 14 11 10.5 15.5 10.5C17.5 10.5 20 12 19 12C18 12 30 10.5 32 18.5C34 26.5 19 36.5 19 36.5Z"/>
+    </path>
+
+    <!-- Heartbeat Line -->
+    <path d="M12 20h4l2-4 2 8 2-4h4" 
+          stroke="white" 
+          stroke-width="1.5" 
+          stroke-linecap="round"/>
+
+    <!-- HealU Text -->
+    <text x="50" y="32" 
+          font-family="Cursive" 
+          font-size="45" 
+          font-weight="bold" 
+          letter-spacing="1" 
+          fill="#2563eb">
+        HealU
+    </text>
+
+    <!-- Gradient Definition -->
+    <defs>
+        <linearGradient id="heartGradient" x1="8" y1="10" x2="32" y2="36">
+            <stop offset="0%" stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#22c55e"/>
+        </linearGradient>
+    </defs>
+</svg>
