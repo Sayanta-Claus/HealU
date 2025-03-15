@@ -1,13 +1,17 @@
 "use client"
- 
-import { Button } from "@/components/ui/button"
+ import { useState } from 'react';
+// import { Button } from "@/components/ui/button"
 import {
-    Form,
-} from "@/components/ui/form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import CustomFormField from "../CustomFormField"
+  Form,
+} from "@/components/ui/form";
+import { createUser } from "@/lib/actions/patient.actions";
+import { UserFormValidation } from '@/lib/validation';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import CustomFormField from "../CustomFormField";
+import SubmitButton from "../SubmitButton";
  export enum FormFieldType{
     INPUT='input',
     TEXTAREA='textarea',
@@ -17,28 +21,48 @@ import CustomFormField from "../CustomFormField"
     SELECT='select',
     SKELETON='skeleton',
  }
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-})
+
+
+
+
+
+
  
 const PatientForm=()=> {
+  const router = useRouter()
   // 1. Define your form.
+  const [isLoading, setIsLoading] = useState(false)
 
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof UserFormValidation>>({
+    resolver: zodResolver(UserFormValidation),
     defaultValues: {
-      username: "",
+      name: "",
+      email: "",
+      phone: "",
     },
   })
  
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit=async({name,email,phone}: z.infer<typeof UserFormValidation>)=> {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
+    // console.log("HEY");
+    setIsLoading(true);
+    try{
+      const userData={
+        name,email,phone
+      };
+      const user = await createUser(userData);
+      if(user){
+        router.push(`/patients/${user.$id}/register`)
+      }
+      // console.log({user})
+    }catch(error){
+      console.log(error);
+    }
+    // setIsLoading(false);
+    // console.log(values)
   }
   return(
     <Form {...form}>
@@ -48,7 +72,11 @@ const PatientForm=()=> {
                 <p className="text-dark-700">Schedule your first appointment</p>
       </section>
      <CustomFormField fieldType={FormFieldType.INPUT} name="name" label="Full name" placeholder="John Doe" iconSrc="/assets/icons/user.svg" iconAlt="user" control={form.control}/>
-      <Button type="submit">Submit</Button>
+     <CustomFormField fieldType={FormFieldType.INPUT} name="email" label="email" placeholder="johndoe@gmail.com" iconSrc="/assets/icons/email.svg" iconAlt="email" control={form.control}/>
+     <CustomFormField fieldType={FormFieldType.PHONE_INPUT} name="phone" label="phone number" placeholder="1234567890" control={form.control}/>
+      
+      
+      <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
     </form>
   </Form>
   )
