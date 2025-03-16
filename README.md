@@ -10,44 +10,102 @@
     <img src="https://img.shields.io/badge/-Appwrite-black?style=for-the-badge&logoColor=white&logo=appwrite&color=FD366E" alt="appwrite" />
   </div>
 
-  <h3 align="center">A HealthCare Management System</h3>
+  <h3 align="center"> Patient Management Healthcare Application</h3>
 </div>
 
 
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## <a name="introduction">Introduction</a>
+
+This is a healthcare patient management application which allows patients to easily register and manage their appointments with specific doctors. It has tools for scheduling, confirming and cancelling appointments, through SMS notifications all built in NEXT.js.
+
+## <a name="tech-stack">⚙️ Tech Stack</a>
+
+- Next.js
+- Appwrite
+- Typescript
+- TailwindCSS
+- ShadCN
+- Twilio
+
+
+## <a name="features"> Features</a>
+
+-> **Register as a Patient**: Users can create a profile as a patient.
+
+-> **Book a New Appointment with Doctor**: Patients can schedule appointments with doctors at their convenience and can book multiple appointments.
+
+-> **Manage Appointments on Admin Side**: Administrator can view and handle all scheduled appointments.
+
+-> **Confirm,Schedule and Cancel Appointment from Admin Side**: Admins can confirm and set appointment times to ensure they are properly scheduled and have the ability to cancel them with proper reasons.
+
+-> **SMS on Appointment Confirmation**: Patients receive SMS notifications to confirm their appointment details.
+
+-> **File Upload Using Appwrite Storage**: Patients can upload and store documents securely within the app using Appwrite storage services.
+
+-> **Manage and Track Application Performance Using Sentry**: The application uses Sentry to monitor and track its performance and detect any errors.
+
+
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up the project locally on your device.
+
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+**Cloning the Repository**
+
+```bash
+git clone https://github.com/Sayanta-Claus/HealU.git
+cd healthcare
+```
+
+**Installation**
+
+Install the project dependencies using npm:
+
+```bash
+npm install
+```
+
+**Set Up Environment Variables**
+
+Create a new file named `.env.local` in the root of your project and add the following content:
+
+```env
+#APPWRITE
+NEXT_PUBLIC_ENDPOINT=https://cloud.appwrite.io/v1
+PROJECT_ID=
+API_KEY=
+DATABASE_ID=
+PATIENT_COLLECTION_ID=
+APPOINTMENT_COLLECTION_ID=
+NEXT_PUBLIC_BUCKET_ID=
+NEXT_PUBLIC_ADMIN_PASSKEY=
+```
+
+Fill the values with your actual Appwrite credentials. You can obtain these by signing up on the [Appwrite website](https://appwrite.io/).
+
+**Running the Project**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Additional Features to add
 
-To learn more about Next.js, take a look at the following resources:
+1. **Patient Dashboard**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Authentication for patients**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Doctor Dashbaord**
