@@ -13,13 +13,11 @@
   <h3 align="center"> Patient Management Healthcare Application</h3>
 </div>
 
-
-
 ## <a name="introduction">Introduction</a>
 
 This is a healthcare patient management application which allows patients to easily register and manage their appointments with specific doctors. It has tools for scheduling, confirming and cancelling appointments, through SMS notifications all built in NEXT.js.
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+## <a name="tech-stack">Tech Stack</a>
 
 - Next.js
 - Appwrite
@@ -27,7 +25,6 @@ This is a healthcare patient management application which allows patients to eas
 - TailwindCSS
 - ShadCN
 - Twilio
-
 
 ## <a name="features"> Features</a>
 
@@ -44,8 +41,6 @@ This is a healthcare patient management application which allows patients to eas
 -> **File Upload Using Appwrite Storage**: Patients can upload and store documents securely within the app using Appwrite storage services.
 
 -> **Manage and Track Application Performance Using Sentry**: The application uses Sentry to monitor and track its performance and detect any errors.
-
-
 
 ## Getting Started
 
@@ -99,8 +94,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
-
-
 
 ## Additional Features to add
 
